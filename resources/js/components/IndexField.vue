@@ -38,9 +38,11 @@ export default {
           override: this.field.override ? this.field.override : ""
         })
         .then(response => {
+          this.$toasted.show('It worked!', { type: 'success' })
           window.location.replace(response.data.destination);
         })
         .catch(error => {
+          this.$toasted.show('It failed!', { type: 'error' })
           console.log(error);
         });
     }
